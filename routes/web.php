@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/abouts', [App\Http\Controllers\AboutController::class, 'index'])->name('abouts.index');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('/')->group((function () {
+    Route::get('/', [App\Http\Controllers\ArsipController::class, 'index'])->name('arsips.index');
+    Route::get('/create', [App\Http\Controllers\ArsipController::class, 'create'])->name('arsips.create');
+    Route::post('/store', [App\Http\Controllers\ArsipController::class, 'store'])->name('arsips.store');
+    Route::get('/{id}', [App\Http\Controllers\ArsipController::class, 'show'])->name('arsips.show');
+    Route::get('/{id}/edit', [App\Http\Controllers\ArsipController::class, 'edit'])->name('arsips.edit');
+    Route::patch('/{id}/update', [App\Http\Controllers\ArsipController::class, 'update'])->name('arsips.update');
+    Route::get('/{id}/download', [App\Http\Controllers\ArsipController::class, 'download'])->name('arsips.download');
+    Route::delete('/{id}/destroy', [App\Http\Controllers\ArsipController::class, 'destroy'])->name('arsips.destroy');
+}));
