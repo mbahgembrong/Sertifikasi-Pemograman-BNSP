@@ -11,7 +11,7 @@
         'kategori',
         [
             'Undangan' => 'Undangan',
-            'Undangan' => 'Pengumuman',
+            'Pengumuman' => 'Pengumuman',
             'Nota Dinas' => 'Nota Dinas',
             'Pemberitahuan' => 'Pemberitahuan',
         ],
