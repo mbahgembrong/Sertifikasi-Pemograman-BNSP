@@ -22,6 +22,7 @@
                             {!! Form::button('<i class="far fa-trash-alt"></i> Hapus', [
                                 'type' => 'submit',
                                 'class' => 'btn btn-danger btn-xs',
+                                'id'=>'delete',
                                 // 'onclick' => "return confirm('Apakah Anda yakin ingin menghapus arsip surat ini?')",
                             ]) !!}
                         </div>
@@ -45,7 +46,7 @@
         integrity="sha256-7Aj3hR8VjszIO1+v+ehR706sD5wpug0foOso7pqP4OY=" crossorigin="anonymous"></script>
 
     <script>
-        $('button[type="submit"]').on('click', function(e) {
+        $('button#delete').on('click', function(e) {
             e.preventDefault();
             var form = $(this).closest('form');
             new Swal({
